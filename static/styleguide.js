@@ -1,13 +1,19 @@
 /* eslint-env browser */
 window.styleguide = {
-	onIframeRendered: function( targetWin ) {
+	resizeIframes: function() {
+		window.iFrameResize( { heightCalculationMethod: 'documentElementScroll' } );
+	},
+	injectIframeResizer: function() {
 		var iframes = document.querySelectorAll( 'iframe' );
-		setTimeout( function() {
-			iframes.forEach( function( iframe ) {
-				if ( iframe.contentWindow === targetWin ) {
-					iframe.style.height = iframe.contentWindow.document.documentElement.scrollHeight + 'px';
-				}
-			} );
+		iframes.forEach( function( iframe ) {
+			iframe.contentWindow.eval(
+				'function createScript() {' +
+				'	var script = document.createElement("script");' +
+				'	script.src = "/static/iframeResizer.contentWindow.min.js";' +
+				'	document.body.appendChild(script);' +
+				'}' +
+				'setTimeout(createScript, 600);'
+			);
 		} );
 	},
 	showTab: function( tabEl, id ) {
@@ -33,3 +39,6 @@ window.styleguide = {
 		} );
 	}
 };
+
+window.styleguide.injectIframeResizer();
+window.styleguide.resizeIframes();
