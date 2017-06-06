@@ -30,7 +30,10 @@ module.exports = {
 			} else {
 				uiLibraryPath( uiLibrary );
 				readPkgUp().then( result => {
-					app.locals.lib_package = result.pkg;
+					let defaults = {
+						styleguide: { title: 'Aconex Styleguide' }
+					};
+					app.locals.lib_package = Object.assign( {}, defaults, result.pkg );
 				} );
 				// eslint-disable-next-line no-console
 				console.log( `STYLEGUIDE: Using ui library at '${uiLibraryPath()}'.` );
