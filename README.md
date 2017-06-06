@@ -31,7 +31,7 @@ Use the starter template to get an idea of the basic project setup for configuri
   Then supply the path to your UI library and demo routing before starting the styleguide:
 
   ```
-  const styleguide = require( 'styleguide' );
+  const styleguide = require( '@aconex/styleguide' );
 
   styleguide
     .config( {
