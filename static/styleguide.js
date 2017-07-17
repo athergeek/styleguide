@@ -4,16 +4,13 @@ window.styleguide = {
 		window.iFrameResize( { heightCalculationMethod: 'documentElementScroll' } );
 	},
 	injectIframeResizer: function() {
-		var iframes = document.querySelectorAll( 'iframe' );
-		iframes.forEach( function( iframe ) {
-			iframe.contentWindow.eval(
-				'function createScript() {' +
-				'	var script = document.createElement("script");' +
-				'	script.src = "/static/iframeResizer.contentWindow.min.js";' +
-				'	document.body.appendChild(script);' +
-				'}' +
-				'setTimeout(createScript, 600);'
-			);
+		var iframes = Array.prototype.slice.call( frames );
+		iframes.forEach( function( fr ) {
+			var script = fr.document.createElement( 'script' );
+			script.src = '/static/iframeResizer.contentWindow.min.js';
+			fr.window.onload = function() {
+				fr.document.body.appendChild( script );
+			};
 		} );
 	},
 	showTab: function( tabEl, id ) {
