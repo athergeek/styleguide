@@ -16,6 +16,33 @@ Use the starter template to get an idea of the basic project setup for configuri
 
 2. Configure the styleguide's options:
 
+  Configure the styleguide's page and navigation titles from your UI library's `package.json`. For example:
+
+  ```
+  {
+    "name": "ui-library",
+    "version": "1.0.0",
+    "styleguide": {
+      "title": "My styleguide"
+    }
+  }
+  ```
+
+  Then supply the path to your UI library and demo routing before starting the styleguide:
+
+  ```
+  const styleguide = require( '@aconex/styleguide' );
+
+  styleguide
+    .config( {
+      uiLibrary: './path/to/ui-library',
+      demos: function(expressApp, express) {
+        // ...
+      }
+    } )
+    .start();
+  ```
+
   - `uiLibrary`: path pointing to your UI library.
   - `demos`: a function for configuration of custom routes for the styleguide. It will be called with the styleguide's express instance, and `express` itself.
 
