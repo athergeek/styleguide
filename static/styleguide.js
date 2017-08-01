@@ -3,16 +3,6 @@ window.styleguide = {
 	resizeIframes: function() {
 		window.iFrameResize( { heightCalculationMethod: 'documentElementScroll' } );
 	},
-	injectIframeResizer: function() {
-		var iframes = Array.prototype.slice.call( frames );
-		iframes.forEach( function( fr ) {
-			var script = fr.document.createElement( 'script' );
-			script.src = '/static/iframeResizer.contentWindow.min.js';
-			fr.window.onload = function() {
-				fr.document.body.appendChild( script );
-			};
-		} );
-	},
 	showTab: function( tabEl, id ) {
 		var context = tabEl.parentElement.parentElement;
 		var tabs = context.querySelectorAll( '[data-tab-toggle]' );
@@ -37,5 +27,4 @@ window.styleguide = {
 	}
 };
 
-window.styleguide.injectIframeResizer();
 window.styleguide.resizeIframes();
