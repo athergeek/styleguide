@@ -3,19 +3,6 @@ window.styleguide = {
 	resizeIframes: function() {
 		window.iFrameResize( { heightCalculationMethod: 'documentElementScroll' } );
 	},
-	injectIframeResizer: function() {
-		var iframes = document.querySelectorAll( 'iframe' );
-		iframes.forEach( function( iframe ) {
-			iframe.contentWindow.eval(
-				'function createScript() {' +
-				'	var script = document.createElement("script");' +
-				'	script.src = "/static/iframeResizer.contentWindow.min.js";' +
-				'	document.body.appendChild(script);' +
-				'}' +
-				'setTimeout(createScript, 600);'
-			);
-		} );
-	},
 	showTab: function( tabEl, id ) {
 		var context = tabEl.parentElement.parentElement;
 		var tabs = context.querySelectorAll( '[data-tab-toggle]' );
@@ -40,5 +27,4 @@ window.styleguide = {
 	}
 };
 
-window.styleguide.injectIframeResizer();
 window.styleguide.resizeIframes();
