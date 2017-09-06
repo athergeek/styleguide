@@ -82,8 +82,8 @@ Use the starter template to get an idea of the basic project setup for configuri
       {
         "title": "Components",
         "items": [
-          { "title": "Calendar", "path": "components/calendar" },
-          { "title": "Datepicker", "path": "components/datepicker" }
+          { "title": "Calendar", "path": "components/calendar", keywords: "calendar date" },
+          { "title": "Datepicker", "path": "components/datepicker", keywords: "datepicker date" }
         ]
       }
     ]
@@ -92,7 +92,11 @@ Use the starter template to get an idea of the basic project setup for configuri
 
   In this example, the navigation menu will contain a Components section with 2 items in it: Calendar and Datepicker.
 
-  The contents of `guide.md` file will be rendered when navigating to a particular component. Inside the `guide.md`, you can embed the contents of a `demo.html`. For example, in `calendar.guide.md` you can insert the calendar demo with `--$ calendar.demo $--`.
+  The `keywords` property is optional and used for the sidebar's search. If supplied, it should contain a space separated list of keywords relevant to that component.
+
+  The contents of the `guide.md` file will be rendered when navigating to a particular component. Inside the `guide.md`, you can embed the contents of a `demo.html`.
+
+  For example, navigating to `components/calendar` will render `calendar.guide.md`. In `calendar.guide.md` you can insert the calendar demo with `--$ calendar.demo $--`.
 
 ## Publishing
 
