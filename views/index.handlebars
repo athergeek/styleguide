@@ -26,19 +26,3 @@
 		<div>{{{contents}}}</div>
 	</div>
 </div>
-
-<script>
-	let menuItems = Array.from(document.querySelectorAll('.styleguide-nav a'));
-
-	function searchInputChangeHandler(event) {
-		let searchText = new RegExp(event.target.value, 'i');
-		menuItems.forEach(function(menuItem) {
-
-			menuItem.style.display = (menuItem.innerText.match(searchText)
-				|| (menuItem.dataset.hasOwnProperty('keywords') && menuItem.dataset.keywords.match(searchText)))
-				? 'block' : 'none';
-		});
-	}
-
-	document.getElementById('searchInput').addEventListener('keyup', searchInputChangeHandler);
-</script>
