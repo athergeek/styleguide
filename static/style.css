@@ -83,10 +83,18 @@ code {
 	z-index: 1;
 }
 
+.styleguide-sidebar-section {
+	padding-left: 32px;
+	padding-right: 32px;
+	margin: 24px 0;
+}
+
 .styleguide-brand {
 	border-bottom: 1px solid #ddd;
 	font-size: 0.9rem;
-	padding: 16px 0;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	margin: 0;
 	font-weight: bold;
 	line-height: 24px;
 }
@@ -102,18 +110,10 @@ code {
 	margin-right: 16px;
 }
 
-.styleguide-brand,
-.styleguide-package,
-.styleguide-nav-search,
-.styleguide-nav {
-	padding-left: 32px;
-	padding-right: 32px;
-}
-
-.styleguide-package,
-.styleguide-nav-search,
-.styleguide-nav {
-	margin: 24px 0;
+.styleguide-nav-search input[type=search] {
+	display: block;
+	width: 100%;
+	padding: 4px;
 }
 
 .styleguide-nav {
@@ -226,7 +226,6 @@ code {
 	width: 20px;
 }
 
-
 .styleguide-tocAnchor {
 	display: none;
 	text-decoration: none;
@@ -309,7 +308,6 @@ pre.styleguide-demoCode.prettyprint {
 	opacity: 0.8;
 }
 
-A:hover + .styleguide-external-link {
+a:hover + .styleguide-external-link {
 	opacity: 0.2;
 }
-
