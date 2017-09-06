@@ -1,16 +1,14 @@
 <div class="styleguide-page">
 	<div class="styleguide-sidebar">
-		<div class="styleguide-brand">
+		<div class="styleguide-sidebar-section styleguide-brand">
 			<img src="/static/aconex-logo.png">
 			<a href="/">{{{lib_package.styleguide.title}}}</a>
 		</div>
-		<div class="styleguide-package">
-			v{{lib_package.version}}
-		</div>
-		<div class="styleguide-nav-search">
+		<div class="styleguide-sidebar-section">v{{lib_package.version}}</div>
+		<div class="styleguide-sidebar-section styleguide-nav-search">
 			<input type="search" id="searchInput" name="search" value="" placeholder="Search">
 		</div>
-		<ul class="styleguide-nav">
+		<ul class="styleguide-sidebar-section styleguide-nav">
 			{{#each menu.sections}}
 				<li>{{title}}
 					<ul>
